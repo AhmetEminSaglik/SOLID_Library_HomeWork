@@ -1,10 +1,14 @@
 package com.company.registration;
 
 import com.company.db.DAOAble;
+import com.company.entity.book.Book;
 import com.company.exception.ExitRequestException;
 import com.company.entity.book.content.Author;
 import com.company.exception.UnAvailableBookNameInputException;
 import com.company.exception.UnAvailableBookSubjectInputException;
+import com.company.service.book.UnAvailableBookPageNumberInputException;
+import com.company.service.registration.db.BaseRegistrationToDB;
+import com.company.service.registration.db.BookRegistrationDB;
 import com.company.service.validation.book.BookInputAvailableService;
 
 public class RegistrationBook extends Registration {
@@ -14,40 +18,38 @@ public class RegistrationBook extends Registration {
         super(daoAble);
     }
 
-    public void registerBookAsMuchAsWeWant() {
+    public void registerBook() throws ExitRequestException {
 
         String bookName, subject;
         int pageNumber;
         Author author;
 
-        while (true) {
-            System.out.println("IF you want to exit please  enter  :  \"exit\"");
-            try {
-                bookName = getAvailableBookName();
-                subject = getAvailableSubject();
+
+        System.out.println("IF you want to exit please  enter  :  \"exit\"");
+
+        bookName = getAvailableBookName();
+        subject = getAvailableSubject();
+        author = getAvailableAuthor();
+        pageNumber = getAvailablePageNumber();
 
 
-            } catch (ExitRequestException e) {
-                System.out.println("Exit Request is realized");
-                return;
-            }
+        Book book = new Book(bookName, author, subject, pageNumber);
 
+        registerbook(book);
 
-        }
 
     }
 
-    private boolean exitRequestCheck(String input) throws ExitRequestException {
-        if (input.equalsIgnoreCase("exit")) {
-            throw new ExitRequestException("Exit request");
-        }
-        return false;
+    private void registerbook(Book book) {
+        BaseRegistrationToDB bookRegistration = new BookRegistrationDB(daoAble);
+        bookRegistration.register(book);
+
     }
 
     private String getAvailableBookName() throws ExitRequestException {
         try {
             String bookName = getBookNameInput();
-            exitRequestCheck(bookName);
+//            exitRequestCheck(bookName);
             BookInputAvailableService.isBookNameAvailableToRegister(bookName);
             return bookName;
         } catch (UnAvailableBookNameInputException ex) {
@@ -56,7 +58,12 @@ public class RegistrationBook extends Registration {
         }
     }
 
-    private String getBookNameInput() {
+    private Author getAvailableAuthor() throws ExitRequestException {
+        Author author = new CreationOfAuthor().getAvailableAuthor();
+        return author;
+    }
+
+    private String getBookNameInput() throws ExitRequestException {
         System.out.print("Please enter for Book Name : ");
         return secureInput.getStringInput();
     }
@@ -65,7 +72,7 @@ public class RegistrationBook extends Registration {
     private String getAvailableSubject() throws ExitRequestException {
         try {
             String subject = getSubjectInput();
-            exitRequestCheck(subject);
+//            exitRequestCheck(subject);
             BookInputAvailableService.isBookSubjectAvailableToRegister(subject);
             return subject;
         } catch (UnAvailableBookSubjectInputException ex) {
@@ -75,9 +82,26 @@ public class RegistrationBook extends Registration {
 
     }
 
-    private String getSubjectInput() {
+    private String getSubjectInput() throws ExitRequestException {
         System.out.print("Please enter for Subject : ");
         return secureInput.getStringInput();
     }
 
+    private int getAvailablePageNumber() throws ExitRequestException {
+        try {
+            int bookPageNumber = getBookPageNumberInput();
+            BookInputAvailableService.isBookPageNumberAvailableToRegister(bookPageNumber);
+            return bookPageNumber;
+        } catch (UnAvailableBookPageNumberInputException e) {
+            e.printStackTrace();
+            return getAvailablePageNumber();
+        }
+//        exitRequestCheck(bookPageNumber);
+
+    }
+
+    private int getBookPageNumberInput() throws ExitRequestException {
+        System.out.print("Please enter for Book Page Number : ");
+        return secureInput.getPozitiveInput();
+    }
 }

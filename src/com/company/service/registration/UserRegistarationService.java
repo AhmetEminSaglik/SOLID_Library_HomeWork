@@ -12,7 +12,7 @@ public class UserRegistarationService {
 
     public void registerUser(User user) {
         daoAble.add(user);
-        System.out.println(" Ekli Userlar : ");
+        System.out.println(getClass().getSimpleName() + "-)  Ekli Userlar : ");
         for (User tmp : daoAble.getAll()) {
             System.out.println(tmp);
         }

@@ -21,18 +21,18 @@ public class RegistrationUser extends Registration {
 //        this.daoAble = daoAble;
     }
 
-    public void registerUserAsMuchAsWeWant() {
+    public void registerUser() throws ExitRequestException {
 
         String inputUsername, inputPassword;
-        while (true) {
-            System.out.println("IF you want to exit please  enter  :  \"exit\"");
+
+//            System.out.println("IF you want to exit please  enter  :  \"exit\"");
 
 
             /*boolean usernameAvailable =*/
                 /*inputUsername = getUsernameInput();
                 UsernameAvailableService.isUsernameAvailableToRegister(inputUsername);*/
 
-            try {
+
                 inputUsername = getAvailableUsername();
 
                 /*boolean passwordAvailable =*/
@@ -46,28 +46,25 @@ public class RegistrationUser extends Registration {
 
                 registerUser(user);
 
-            } catch (ExitRequestException e) {
-                System.out.println("Exit Request is realized");
-                return;
-            }  // once object olarak user gonderecez  --> BaseRegistrationToDB
+              // once object olarak user gonderecez  --> BaseRegistrationToDB
             // sonra user olarak user  gondericez  --> BaseRegistrationToDB<User>
 
 
-        }
+
 
     }
 
-    private boolean exitRequestCheck(String input) throws ExitRequestException {
+    /*private boolean exitRequestCheck(String input) throws ExitRequestException {
         if (input.equalsIgnoreCase("exit")) {
             throw new ExitRequestException("Exit request");
         }
         return false;
-    }
+    }*/
 
     private String getAvailableUsername() throws ExitRequestException {
         try {
             String inputUsername = getUsernameInput();
-            exitRequestCheck(inputUsername);
+            //exitRequestCheck(inputUsername);
             UsernameAvailableService.isUsernameAvailableToRegister(inputUsername);
             return inputUsername;
         } catch (UnAvailableUsernameInputException ex) {
@@ -80,7 +77,7 @@ public class RegistrationUser extends Registration {
     private String getAvailablePassword() throws ExitRequestException {
         try {
             String inputPassword = getPasswordInput();
-            exitRequestCheck(inputPassword);
+//            exitRequestCheck(inputPassword);
             PasswordAvailableService.isPasswordAvailableToRegister(inputPassword);
             return inputPassword;
         } catch (UnAvailablePasswordInputException ex) {
@@ -104,20 +101,17 @@ public class RegistrationUser extends Registration {
         userRegistration.register(user);
     }
 
-    private String getUsernameInput() {
+    private String getUsernameInput() throws ExitRequestException {
         System.out.print("Please enter for Username : ");
         return secureInput.getStringInput();
 
     }
 
-    private String getPasswordInput() {
+    private String getPasswordInput() throws ExitRequestException {
         System.out.print("Please enter for Password : ");
         return secureInput.getStringInput();
 
     }
 
-    public void registerBookAsMuchAsWeWant() {
-        System.out.println(" REGISTER BOOK AS MUCH AS WE WANT ");
-    }
 
 }

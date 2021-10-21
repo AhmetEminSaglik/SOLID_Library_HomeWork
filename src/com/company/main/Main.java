@@ -4,6 +4,8 @@ import com.company.db.DAOAble;
 import com.company.db.variable.MYSQLDB;
 import com.company.registration.Registration;
 
+import java.util.Scanner;
+
 public class Main {
 
     /*
@@ -19,11 +21,13 @@ public class Main {
      * Dergi bilgileri :id sayfasayisi kitap adi yazari konusu  doi numarasi */
     public static void main(String[] args) {
         // write your code here
-
+     /*   Scanner scanner = new Scanner(System.in);
+        scanner.nextInt();*/
         DAOAble daoAble = new MYSQLDB();
 
         Registration registration = new Registration(daoAble);
-        registration.registerUserInWhileLoop();
+//        registration.registerMultipleUser();
+        registration.registerMultipleBook();
 //        registration.registerBookAsMuchAsWeWant();
 
        /* String userNameInput = "Ahmet Emin";
