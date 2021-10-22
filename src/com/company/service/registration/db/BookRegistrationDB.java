@@ -20,7 +20,7 @@ public class BookRegistrationDB /*extends BaseRegistrationToDB<Book> */ implemen
     public void register(Book book) {
         bookRegistrationService.registerBook(book);
         for (Entity tmp : daoAble.getAll()) {
-            System.out.println(tmp);
+            System.out.println("                                         "+tmp);
         }
 
     }

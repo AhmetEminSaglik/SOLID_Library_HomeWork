@@ -8,4 +8,8 @@ public class Materyal extends Entity<Materyal> {
     public Materyal(int id) {
         this.id = id;
     }
+
+    public int getId() {
+        return id;
+    }
 }

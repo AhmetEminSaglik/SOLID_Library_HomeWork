@@ -1,15 +1,14 @@
 package com.company.registration.layer.first;
 
 import com.company.db.DAOAble;
+import com.company.entity.user.User;
 import com.company.exception.ExitRequestException;
 import com.company.registration.layer.second.RegistrationUser;
-import com.company.secureinput.SecureInput;
 
 public class RegistrationOfUser {
-    DAOAble daoAble;
-    SecureInput secureInput = new SecureInput();
+    DAOAble<User> daoAble;
 
-    public RegistrationOfUser(DAOAble daoAble) {
+    public RegistrationOfUser(DAOAble<User> daoAble) {
         this.daoAble = daoAble;
     }
 
@@ -31,7 +30,8 @@ public class RegistrationOfUser {
 
     public void registerSingleUser() throws ExitRequestException {
         RegistrationUser registrationUser = new RegistrationUser(daoAble);
-        registrationUser.registerUser();
+          registrationUser.registerUser();
+
 
     }
 }

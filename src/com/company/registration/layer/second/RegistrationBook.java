@@ -19,8 +19,7 @@ public class RegistrationBook extends Registration {
         super(daoAble);
     }
 
-    public void registerBook() throws ExitRequestException {
-
+    public Book createBook() throws ExitRequestException {
         int id;
         String bookName, subject;
         int pageNumber;
@@ -34,6 +33,11 @@ public class RegistrationBook extends Registration {
 
 
         Book book = new Book(id, bookName, author, subject, pageNumber);
+        return book;
+    }
+
+    public void registerBook() throws ExitRequestException {
+        Book book = createBook();
 
         registerbook(book);
 

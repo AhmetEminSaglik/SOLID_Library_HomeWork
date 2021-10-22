@@ -29,7 +29,7 @@ public class CreationOfAuthor {
     }
 
     private String getAuthorNameInput() throws ExitRequestException {
-        System.out.print("Please enter for author name");
+        System.out.print("Please enter for author name : ");
         return secureInput.getStringInput();
     }
 

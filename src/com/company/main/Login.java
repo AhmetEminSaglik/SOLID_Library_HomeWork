@@ -8,7 +8,7 @@ public class Login {
     DAOAble<User> daoAble;
 
 
-    public Login(DAOAble<User> daoAble) {
+    public Login(DAOAble daoAble) {
         this.daoAble = daoAble;
     }
 

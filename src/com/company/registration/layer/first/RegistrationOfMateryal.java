@@ -1,8 +1,7 @@
 package com.company.registration.layer.first;
 
 import com.company.db.DAOAble;
-import com.company.exception.ExitRequestException;
-import com.company.registration.layer.second.RegistrationBook;
+import com.company.main.RegistrationOfBook;
 import com.company.secureinput.SecureInput;
 
 public class RegistrationOfMateryal {
@@ -15,8 +14,16 @@ public class RegistrationOfMateryal {
         this.daoAble = daoAble;
     }
 
+    public RegistrationOfBook getBookRegistration() {
+        return new RegistrationOfBook(daoAble);
+    }
 
-    public void registerMultipleBook() {
+    public RegistrationOfMagazin getMagazinRegistration() {
+        return new RegistrationOfMagazin(daoAble);
+    }
+
+
+  /*  public void registerMultipleBook() {
         while (true) {
 
             System.out.println("IF you want to exit please  enter  :  \"exit\"");
@@ -34,6 +41,6 @@ public class RegistrationOfMateryal {
 
         RegistrationBook registrationBook = new RegistrationBook(daoAble);
         registrationBook.registerBook();
-    }
+    }*/
 
 }

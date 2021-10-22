@@ -8,7 +8,7 @@ import com.company.exception.UnAvailableUsernameInputException;
 import com.company.entity.user.content.Password;
 import com.company.entity.user.content.Username;
 import com.company.registration.Registration;
-import com.company.service.registration.db.UserRegistarationDB;
+import com.company.service.registration.db.UserRegistrationDB;
 import com.company.service.available.user.PasswordAvailableService;
 import com.company.service.available.user.UsernameAvailableService;
 
@@ -21,37 +21,40 @@ public class RegistrationUser extends Registration {
 //        this.daoAble = daoAble;
     }
 
+    User createUser() throws ExitRequestException {
+        String inputUsername, inputPassword;
+        inputUsername = getAvailableUsername();
+        inputPassword = getAvailablePassword();
+        User user = createUserFromInputValues(inputUsername, inputPassword);
+        return user;
+    }
+
     public void registerUser() throws ExitRequestException {
 
-        String inputUsername, inputPassword;
+        User user = createUser();
+        registerUser(user);
 
 //            System.out.println("IF you want to exit please  enter  :  \"exit\"");
 
 
-            /*boolean usernameAvailable =*/
+        /*boolean usernameAvailable =*/
                 /*inputUsername = getUsernameInput();
                 UsernameAvailableService.isUsernameAvailableToRegister(inputUsername);*/
 
 
-                inputUsername = getAvailableUsername();
 
-                /*boolean passwordAvailable =*/
 
-                inputPassword = getAvailablePassword();
+        /*boolean passwordAvailable =*/
+
+
                 /*inputPassword = getPasswordInput();
                 PasswordAvailableService.isPasswordAvailableToRegister(inputPassword);*/
 
 
-                User user = createUserFromInputValues(inputUsername, inputPassword);
+        // once object olarak user gonderecez  --> BaseRegistrationToDB
+        // sonra user olarak user  gondericez  --> BaseRegistrationToDB<User>
 
-                registerUser(user);
-
-              // once object olarak user gonderecez  --> BaseRegistrationToDB
-            // sonra user olarak user  gondericez  --> BaseRegistrationToDB<User>
-
-
-
-
+//return user;
     }
 
     /*private boolean exitRequestCheck(String input) throws ExitRequestException {
@@ -97,7 +100,7 @@ public class RegistrationUser extends Registration {
 
     private void registerUser(User user) {
 
-        UserRegistarationDB userRegistration = new UserRegistarationDB(daoAble);
+        UserRegistrationDB userRegistration = new UserRegistrationDB(daoAble);
         userRegistration.register(user);
     }
 
