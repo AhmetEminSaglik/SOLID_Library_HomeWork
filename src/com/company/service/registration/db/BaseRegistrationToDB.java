@@ -1,3 +1,4 @@
+/*
 package com.company.service.registration.db;
 
 import com.company.db.DAOAble;
@@ -6,6 +7,7 @@ public abstract class BaseRegistrationToDB<T> implements RegisterAbleToDB<T> {
     DAOAble<T> daoAble;
 
 
+*/
 /*    public Registration(DAOAble daoAble) {
         this.daoAble = daoAble;
 
@@ -14,5 +16,7 @@ public abstract class BaseRegistrationToDB<T> implements RegisterAbleToDB<T> {
     @Override
     public void register(T t) {
     //    System.out.println(getClass().getSimpleName() + " abstactttt GELDIIII ");
-    }*/
+    }*//*
+
 }
+*/

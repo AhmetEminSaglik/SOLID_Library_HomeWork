@@ -1,54 +1,44 @@
 package com.company.main;
 
 import com.company.db.DAOAble;
-import com.company.db.variable.MYSQLDB;
+import com.company.db.variable.MSSQLDB;
+import com.company.exception.ExitRequestException;
 import com.company.registration.Registration;
-
-import java.util.Scanner;
+import com.company.secureinput.SecureInput;
 
 public class Main {
 
     /*
-     * Kullanici adi sifre alinarak oturum acilacak (oturum ac)
+    OK   * Kullanici adi sifre alinarak oturum acilacak (oturum ac)
      * Veritabaninda var olan kitap bilgileri cekilip gosterilecek. (BilgileriGetir(String))
-     * Yeni kitap bilgisi olusturulacak( KitapOlustur(string))
+    OK    * Yeni kitap bilgisi olusturulacak( KitapOlustur(string))
      * Yeni dergi bilgisi olusturulacak (Dergi olustur(String))
-     * Olusturulan bilgiler veritabanina kaydedilecek( Kaydet(String))
+    OK    * Olusturulan bilgiler veritabanina kaydedilecek( Kaydet(String))
      *
      * OOp ve Single Res. Prensibleirne uygun tasatlariniz
-     * Gerektiginde veritabani eklenebilmeli
-     * Kitap bilgileri :id sayfasayisi kitap adi yazari konusu
+    OK    * Gerektiginde veritabani eklenebilmeli
+    OK    * Kitap bilgileri :id sayfasayisi kitap adi yazari konusu
      * Dergi bilgileri :id sayfasayisi kitap adi yazari konusu  doi numarasi */
-    public static void main(String[] args) {
-        // write your code here
-     /*   Scanner scanner = new Scanner(System.in);
-        scanner.nextInt();*/
-        DAOAble daoAble = new MYSQLDB();
+    public static void main(String[] args) throws ExitRequestException {
+
+        DAOAble daoAble = new MSSQLDB();
 
         Registration registration = new Registration(daoAble);
-//        registration.registerMultipleUser();
-        registration.registerMultipleBook();
-//        registration.registerBookAsMuchAsWeWant();
 
-       /* String userNameInput = "Ahmet Emin";
-        String passwordInput = "myPass";
 
-        boolean inputNameValidated = UsernameAvailableService.isUsernameAvailableToRegister(userNameInput);
-        boolean inputPasswordValidated = PasswordAvailableService.isPasswordAvailableToRegister(passwordInput);
+        registration.getUserRegistration().registerMultipleUser();
 
-        if (inputNameValidated == true && inputPasswordValidated == true) {
-            Username userName = new Username(userNameInput);
-            Password password = new Password(passwordInput);
+        registration.getMateryalRegistration().registerMultipleBook();
 
-            User user = new User(userName, password);
+        SecureInput secureInput = new SecureInput();
+        /*System.out.println("enter username to login");
+        String username = secureInput.getStringInput();
+        System.out.println("enter password to login");
+        String password = secureInput.getStringInput();*/
+        Login login = new Login(daoAble);
+        login.loginToAccount();
 
-            BaseRegistrationToDB registeration = new UserRegistarationDB(daoAble);
-            registeration.register(user);
-
-        } else {
-            System.out.println("ERROR  : Username or password is not available to register please try again ");
-        }
-*/
+//        new Validation(daoAble).validateLoginProcess(new User(new Username(username), new Password(password)));
 
     }
 }

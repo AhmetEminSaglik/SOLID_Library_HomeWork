@@ -4,7 +4,7 @@ import com.company.db.DAOAble;
 import com.company.entity.user.User;
 import com.company.service.registration.UserRegistarationService;
 
-public class UserRegistarationDB extends BaseRegistrationToDB<User> {
+public class UserRegistarationDB /*extends BaseRegistrationToDB<User> */ implements RegisterAbleToDB<User> {
     DAOAble<User> daoAble;
 
     UserRegistarationService userRegistarationService;
@@ -18,6 +18,9 @@ public class UserRegistarationDB extends BaseRegistrationToDB<User> {
     @Override
     public void register(User user) {
         userRegistarationService.registerUser(user);
+        for (User tmp : daoAble.getAll()) {
+            System.out.println(tmp);
+        }
     }
 
 

@@ -1,18 +1,18 @@
 package com.company.entity.user.content;
 
 public class Username {
-    String userName;
+    String name;
 
-    public Username(String userName) {
-        this.userName = userName;
+    public Username(String name) {
+        this.name = name;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
     @Override
     public String toString() {
-        return userName;
+        return name;
     }
 }

@@ -3,7 +3,8 @@ package com.company.registration;
 import com.company.entity.book.content.Author;
 import com.company.exception.ExitRequestException;
 import com.company.secureinput.SecureInput;
-import com.company.service.book.UnAvailableAuthorNameInputException;
+import com.company.service.available.book.AuthorAvailableService;
+import com.company.exception.UnAvailableAuthorNameInputException;
 
 public class CreationOfAuthor {
     SecureInput secureInput = new SecureInput();
@@ -28,7 +29,7 @@ public class CreationOfAuthor {
     }
 
     private String getAuthorNameInput() throws ExitRequestException {
-        System.out.println("Please enter for author name");
+        System.out.print("Please enter for author name");
         return secureInput.getStringInput();
     }
 

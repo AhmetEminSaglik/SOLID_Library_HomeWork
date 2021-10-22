@@ -9,7 +9,7 @@ public class SecureInput {
     Scanner scanner = new Scanner(System.in);
 
     public String getStringInput() throws ExitRequestException {
-        System.out.println("IF you want to exit please  enter  :  \"exit\"");
+
         String inputText = scanner.nextLine();
 
         exitRequestCheck(inputText);

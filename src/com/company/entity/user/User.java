@@ -20,4 +20,12 @@ public class User extends Entity<User> {
                 ", password=" + password +
                 '}';
     }
+
+    public Username getUserName() {
+        return userName;
+    }
+
+    public Password getPassword() {
+        return password;
+    }
 }

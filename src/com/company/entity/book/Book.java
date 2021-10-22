@@ -1,9 +1,8 @@
 package com.company.entity.book;
 
-import com.company.entity.Entity;
 import com.company.entity.book.content.Author;
 
-public class Book extends Entity<Book> {
+public class Book extends Materyal {
 
     String name;
     Author author;
@@ -11,7 +10,8 @@ public class Book extends Entity<Book> {
     int pageNumber;
 
 
-    public Book(String name, Author author, String subject, int pageNumber) {
+    public Book(int id,String name, Author author, String subject, int pageNumber) {
+        super(id);
         this.name = name;
         this.author = author;
         this.subject = subject;

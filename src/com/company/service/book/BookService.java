@@ -1,6 +1,7 @@
 package com.company.service.book;
 
 import com.company.exception.UnAvailableBookNameInputException;
+import com.company.exception.UnAvailableBookPageNumberInputException;
 import com.company.exception.UnAvailableBookSubjectInputException;
 
 public class BookService {
@@ -23,6 +24,6 @@ public class BookService {
     public boolean isbookPageNumberAvailableToRegister(int pageNumber) throws UnAvailableBookPageNumberInputException {
         if (pageNumber > 0)
             return true;
-        throw new UnAvailableBookPageNumberInputException("UNAVAILABLE BOOK PAGE NUMBER  INPUT");
+        throw new UnAvailableBookPageNumberInputException("UNAVAILABLE BOOK PAGE NUMBER INPUT  : Please enter positive number");
     }
 }
