@@ -1,7 +1,6 @@
 package com.company.registration;
 
-import com.company.db.DAOAble;
-import com.company.entity.Entity;
+import com.company.db.access.add.DAOAble;
 import com.company.registration.layer.first.RegistrationOfMateryal;
 import com.company.registration.layer.first.RegistrationOfUser;
 import com.company.secureinput.SecureInput;

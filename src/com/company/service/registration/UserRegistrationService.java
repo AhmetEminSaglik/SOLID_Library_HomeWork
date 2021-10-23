@@ -1,6 +1,6 @@
 package com.company.service.registration;
 
-import com.company.db.DAOAble;
+import com.company.db.access.add.DAOAble;
 import com.company.entity.user.User;
 
 

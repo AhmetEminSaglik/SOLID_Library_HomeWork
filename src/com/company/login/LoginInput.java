@@ -1,4 +1,4 @@
-package com.company.main;
+package com.company.login;
 
 import com.company.entity.user.User;
 import com.company.entity.user.content.Password;

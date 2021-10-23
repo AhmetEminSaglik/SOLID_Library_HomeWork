@@ -1,5 +1,6 @@
 package com.company.db;
 
+import com.company.db.access.add.DAOAble;
 import com.company.entity.Entity;
 
 import java.util.ArrayList;

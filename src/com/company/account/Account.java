@@ -1,4 +1,4 @@
-package com.company.main;
+package com.company.account;
 
 import com.company.entity.user.User;
 

@@ -1,6 +1,6 @@
-package com.company.main;
+package com.company.registration.layer.first;
 
-import com.company.db.DAOAble;
+import com.company.db.access.add.DAOAble;
 import com.company.entity.book.Book;
 import com.company.exception.ExitRequestException;
 import com.company.registration.layer.second.RegistrationBook;

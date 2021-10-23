@@ -1,6 +1,6 @@
-package com.company.db.access;
+package com.company.db.access.read;
 
-import com.company.db.DAOAble;
+import com.company.db.access.add.DAOAble;
 
 import java.util.List;
 

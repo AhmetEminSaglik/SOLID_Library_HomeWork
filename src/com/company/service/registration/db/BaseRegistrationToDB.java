@@ -1,7 +1,7 @@
 /*
 package com.company.service.registration.db;
 
-import com.company.db.DAOAble;
+import com.company.db.access.add.DAOAble;
 
 public abstract class BaseRegistrationToDB<T> implements RegisterAbleToDB<T> {
     DAOAble<T> daoAble;

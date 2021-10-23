@@ -1,6 +1,7 @@
-package com.company.main;
+package com.company.login;
 
-import com.company.db.DAOAble;
+import com.company.account.Account;
+import com.company.db.access.add.DAOAble;
 import com.company.entity.user.User;
 import com.company.validation.Validation;
 

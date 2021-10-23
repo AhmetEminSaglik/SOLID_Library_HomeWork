@@ -1,6 +1,6 @@
 package com.company.registration.layer.second;
 
-import com.company.db.DAOAble;
+import com.company.db.access.add.DAOAble;
 import com.company.entity.book.Book;
 import com.company.entity.book.content.Author;
 import com.company.entity.magazin.Magazin;

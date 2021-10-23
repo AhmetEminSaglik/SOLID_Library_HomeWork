@@ -1,9 +1,12 @@
 package com.company.main;
 
-import com.company.db.DAOAble;
+import com.company.account.Account;
+import com.company.db.access.add.DAOAble;
 import com.company.db.variable.MSSQLDB;
 import com.company.entity.Entity;
 import com.company.exception.ExitRequestException;
+import com.company.login.Login;
+import com.company.registered.RegisteredItemInDb;
 import com.company.registration.Registration;
 import com.company.secureinput.SecureInput;
 
@@ -33,15 +36,14 @@ public class Main {
         registration.getMateryalRegistration().getMagazinRegistration().registerMultipleMagazin();
 
         SecureInput secureInput = new SecureInput();
-        /*System.out.println("enter username to login");
-        String username = secureInput.getStringInput();
-        System.out.println("enter password to login");
-        String password = secureInput.getStringInput();*/
-        Login login = new Login(daoAble);
+    Login login = new Login(daoAble);
         Account account = login.loginToAccount();
 
-
-//        new Validation(daoAble).validateLoginProcess(new User(new Username(username), new Password(password)));
+        RegisteredItemInDb registeredItemInDb =new RegisteredItemInDb(daoAble);
+        registeredItemInDb.printItemByRequest();
 
     }
+
+
+
 }

@@ -1,4 +1,4 @@
-package com.company.db.access;
+package com.company.db.access.read;
 
 import java.util.List;
 

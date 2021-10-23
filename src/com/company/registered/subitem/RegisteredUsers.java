@@ -1,17 +1,17 @@
-package com.company.validation;
+package com.company.registered.subitem;
 
-import com.company.db.DAOAble;
-import com.company.db.access.ReadableDb;
+import com.company.db.access.add.DAOAble;
+import com.company.db.access.read.ReadableDb;
 import com.company.entity.user.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RegisteredUsers implements ReadableDb<User> {
-    DAOAble<User> daoAble;
+    DAOAble daoAble;
     List<User> userList = new ArrayList<>();
 
-    public RegisteredUsers(DAOAble<User> daoAble) {
+    public RegisteredUsers(DAOAble daoAble) {
         this.daoAble = daoAble;
     }
 

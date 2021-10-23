@@ -1,7 +1,6 @@
 package com.company.registration.layer.first;
 
-import com.company.db.DAOAble;
-import com.company.main.RegistrationOfBook;
+import com.company.db.access.add.DAOAble;
 import com.company.secureinput.SecureInput;
 
 public class RegistrationOfMateryal {

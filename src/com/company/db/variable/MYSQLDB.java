@@ -1,6 +1,6 @@
 package com.company.db.variable;
 
-import com.company.db.DAOAble;
+import com.company.db.access.add.DAOAble;
 import com.company.db.Database;
 import com.company.service.dbconnection.DatabaseConnectionService;
 import com.company.entity.Entity;

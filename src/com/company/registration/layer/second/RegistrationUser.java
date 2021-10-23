@@ -1,6 +1,6 @@
 package com.company.registration.layer.second;
 
-import com.company.db.DAOAble;
+import com.company.db.access.add.DAOAble;
 import com.company.entity.user.User;
 import com.company.exception.ExitRequestException;
 import com.company.exception.UnAvailablePasswordInputException;
