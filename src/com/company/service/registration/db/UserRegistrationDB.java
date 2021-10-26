@@ -18,7 +18,9 @@ public class UserRegistrationDB /*extends BaseRegistrationToDB<User> */ implemen
 
     @Override
     public void register(User user) {
-        userRegistarationService.registerUser(user);
+//        userRegistarationService.registerUser(user);
+
+        daoAble.add(user);
         for (Entity tmp : daoAble.getAll()) {
             System.out.println("                                         "+tmp);
         }

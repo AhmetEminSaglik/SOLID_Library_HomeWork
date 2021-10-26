@@ -41,8 +41,8 @@ public class Login {
 
 
         }
-        System.out.println("3 kez yanlis girdikten sonra sistem bloke olmustur");
-return null;
+        System.out.println("System is blocked by entered 3 times wrong information ");
+        return null;
 
     }
 }

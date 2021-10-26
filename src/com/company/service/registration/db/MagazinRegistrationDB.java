@@ -16,9 +16,10 @@ public class MagazinRegistrationDB implements RegisterAbleToDB<Magazin> {
 
     @Override
     public void register(Magazin magazin) {
-        magazinRegistrationService.registerMagazin(magazin);
+//        magazinRegistrationService.registerMagazin(magazin);
+        daoAble.add(magazin);
         for (Entity tmp : daoAble.getAll()) {
-            System.out.println("                                         "+tmp);
+            System.out.println("                                         " + tmp);
         }
     }
 }

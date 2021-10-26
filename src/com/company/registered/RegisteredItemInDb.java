@@ -19,13 +19,22 @@ public class RegisteredItemInDb {
         this.daoAble = daoAble;
     }
 
+    final String INPUT_USER_NUMBER = "1";
+    final String INPUT_USER_STRING = "User";
+    final String INPUT_MATERYAL_NUMBER = "2";
+    final String INPUT_MATERYAL_STRING = "Materyal";
+    final String INPUT_BOOK_NUMBER = "3";
+    final String INPUT_BOOK_STRING = "Book";
+    final String INPUT_MAGAZIN_NUMBER = "4";
+    final String INPUT_MAGAZIN_STRING = "Magazin";
+
     public void printItemByRequest() {
 
         System.out.println("Please enter NAME or NUMBER which is given below to see registered in Database ");
-        String text = "1-) User\n" +
-                "2-) Materyal\n" +
-                "3-) Book\n" +
-                "4-) Magazin\n";
+        String text = INPUT_USER_NUMBER + "-) " + INPUT_USER_STRING + "\n" +
+                INPUT_MATERYAL_NUMBER + "-) " + INPUT_MATERYAL_STRING + "\n" +
+                INPUT_BOOK_NUMBER + "-) " + INPUT_BOOK_STRING + "\n" +
+                INPUT_MAGAZIN_NUMBER + "-) " + INPUT_MAGAZIN_STRING + "\n";
         while (true) {
             System.out.println(text);
             try {
@@ -33,24 +42,20 @@ public class RegisteredItemInDb {
                 input = formatInputForSwitch(input);
 
                 switch (input) {
-                    case "User":
-                    case "1":
+                    case INPUT_USER_STRING:
                         printList(getUserListInDb());
                         break;
-                    case "Materyal":
-                    case "2":
+                    case INPUT_MATERYAL_STRING:
                         printList(getMateryalListInDb());
                         break;
-                    case "Book":
-                    case "3":
+                    case INPUT_BOOK_STRING:
                         printList(getBookListInDb());
                         break;
-                    case "Magazin":
-                    case "4":
+                    case INPUT_MAGAZIN_STRING:
                         printList(getMagazinListInDb());
                         break;
                     default:
-                        System.out.println("Unknow Option Please try again");
+                        System.out.println("Unknow Option Please try again >> (entered  invalid input) : " + input);
 
                 }
 
@@ -65,17 +70,17 @@ public class RegisteredItemInDb {
     }
 
     private String formatInputForSwitch(String input) {
-        if (checkEqualsIgnoreCase(input, "User"))
-            return "User";
+        if (checkEqualsIgnoreCase(input, INPUT_USER_STRING) || input.equals(INPUT_USER_NUMBER))
+            return INPUT_USER_STRING;
 
-        if (checkEqualsIgnoreCase(input, "Materyal"))
-            return "Materyal";
-        if (checkEqualsIgnoreCase(input, "Book"))
-            return "Book";
-        if (checkEqualsIgnoreCase(input, "Magazin"))
-            return "Magazin";
+        if (checkEqualsIgnoreCase(input, INPUT_MATERYAL_STRING) || input.equals(INPUT_MATERYAL_NUMBER))
+            return INPUT_MATERYAL_STRING;
+        if (checkEqualsIgnoreCase(input, INPUT_BOOK_STRING) || input.equals(INPUT_BOOK_NUMBER))
+            return INPUT_BOOK_STRING;
+        if (checkEqualsIgnoreCase(input, INPUT_MAGAZIN_STRING) || input.equals(INPUT_MAGAZIN_NUMBER))
+            return INPUT_MAGAZIN_STRING;
 
-        return "null";
+        return null;
 
     }
 

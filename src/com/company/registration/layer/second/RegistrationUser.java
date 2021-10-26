@@ -8,6 +8,7 @@ import com.company.exception.UnAvailableUsernameInputException;
 import com.company.entity.user.content.Password;
 import com.company.entity.user.content.Username;
 import com.company.registration.Registration;
+import com.company.service.registration.UserRegistrationService;
 import com.company.service.registration.db.UserRegistrationDB;
 import com.company.service.available.user.PasswordAvailableService;
 import com.company.service.available.user.UsernameAvailableService;
@@ -100,8 +101,10 @@ public class RegistrationUser extends Registration {
 
     private void registerUser(User user) {
 
-        UserRegistrationDB userRegistration = new UserRegistrationDB(daoAble);
-        userRegistration.register(user);
+//        UserRegistrationDB userRegistration = new UserRegistrationDB(daoAble);
+//        userRegistration.register(user);
+        UserRegistrationService userRegistrationService= new UserRegistrationService(daoAble);
+        userRegistrationService.registerUser(user);
     }
 
     private String getUsernameInput() throws ExitRequestException {

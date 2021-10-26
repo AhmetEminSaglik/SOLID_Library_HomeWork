@@ -9,6 +9,7 @@ import com.company.exception.UnAvailableBookSubjectInputException;
 import com.company.registration.CreationOfAuthor;
 import com.company.registration.Registration;
 import com.company.exception.UnAvailableBookPageNumberInputException;
+import com.company.service.registration.BookRegistrationService;
 import com.company.service.registration.db.BookRegistrationDB;
 import com.company.service.available.book.BookInputAvailableService;
 
@@ -52,8 +53,11 @@ public class RegistrationBook extends Registration {
 
     private void registerbook(Book book) {
 //        BaseRegistrationToDB<Book> bookRegistration = new BookRegistrationDB(daoAble);
-        BookRegistrationDB bookRegistration = new BookRegistrationDB(daoAble);
-        bookRegistration.register(book);
+//        BookRegistrationDB bookRegistration = new BookRegistrationDB(daoAble);
+//        bookRegistration.register(book);
+        BookRegistrationService bookRegistrationService = new BookRegistrationService(daoAble);
+        bookRegistrationService.registerBook(book);
+
 
     }
 

@@ -2,6 +2,7 @@ package com.company.service.registration;
 
 import com.company.db.access.add.DAOAble;
 import com.company.entity.user.User;
+import com.company.service.registration.db.UserRegistrationDB;
 
 
 public class UserRegistrationService {
@@ -14,7 +15,9 @@ public class UserRegistrationService {
     }
 
     public void registerUser(User user) {
-        daoAble.add(user);
+//        daoAble.add(user);
+        UserRegistrationDB userRegistrationDB = new UserRegistrationDB(daoAble);
+        userRegistrationDB.register(user);
 
 //        System.out.println(getClass().getSimpleName() + "-)  Ekli Userlar : ");
 

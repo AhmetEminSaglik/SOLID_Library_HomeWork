@@ -8,7 +8,7 @@ import com.company.exception.ExitRequestException;
 import com.company.exception.UnAvailableBookNameInputException;
 import com.company.registration.Registration;
 import com.company.service.available.book.MagazinInputAvailableService;
-import com.company.service.registration.db.MagazinRegistrationDB;
+import com.company.service.registration.db.MagazinRegistrationService;
 
 public class RegistrationMagazin extends Registration {
 
@@ -39,8 +39,11 @@ public class RegistrationMagazin extends Registration {
     }
 
     private void registerMagazin(Magazin magazin) {
-        MagazinRegistrationDB magazinRegistrationDB = new MagazinRegistrationDB(daoAble);
-        magazinRegistrationDB.register(magazin);
+//        MagazinRegistrationDB magazinRegistrationDB = new MagazinRegistrationDB(daoAble);
+//        magazinRegistrationDB.register(magazin);
+
+        MagazinRegistrationService magazinRegistrationService = new MagazinRegistrationService(daoAble);
+        magazinRegistrationService.registerMagazin(magazin);
     }
 
     public String getAvailableDoiNumber() throws ExitRequestException {

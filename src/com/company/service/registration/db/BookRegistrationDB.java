@@ -18,9 +18,10 @@ public class BookRegistrationDB /*extends BaseRegistrationToDB<Book> */ implemen
 
     @Override
     public void register(Book book) {
-        bookRegistrationService.registerBook(book);
+//        bookRegistrationService.registerBook(book);
+        daoAble.add(book);
         for (Entity tmp : daoAble.getAll()) {
-            System.out.println("                                         "+tmp);
+            System.out.println("                                         " + tmp);
         }
 
     }

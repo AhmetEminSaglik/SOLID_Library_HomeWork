@@ -2,7 +2,7 @@ package com.company.service.registration;
 
 import com.company.db.access.add.DAOAble;
 import com.company.entity.book.Book;
-
+import com.company.service.registration.db.BookRegistrationDB;
 
 
 public class BookRegistrationService {
@@ -13,7 +13,10 @@ public class BookRegistrationService {
     }
 
     public void registerBook(Book book) {
-        daoAble.add(book);
+//        daoAble.add(book);
+        BookRegistrationDB bookRegistrationDB = new BookRegistrationDB(daoAble);
+        bookRegistrationDB.register(book);
+
 //        System.out.println("-) Ekli Booklar : ");
 
 //        RequestedTypeEntityDB<Book> requestedTypeEntityDB = new RequestedTypeEntityDB<>(daoAble); ????? CALISMIYOR????
