@@ -1,18 +1,19 @@
 package com.company.registered.subitem;
 
 import com.company.db.access.add.DAOAble;
-import com.company.db.access.read.ReadableDb;
+import com.company.db.access.read.ReadDb;
 import com.company.entity.book.Materyal;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RegisteredMateryal implements ReadableDb<Materyal> {
-    DAOAble daoAble;
+public class ReadRegisteredMateryal extends ReadDb<Materyal>/* implements ReadableDb<Materyal>*/ {
+//    DAOAble daoAble;
     List materyalList = new ArrayList<>();
 
-    public RegisteredMateryal(DAOAble daoAble) {
-        this.daoAble = daoAble;
+    public ReadRegisteredMateryal(DAOAble daoAble) {
+        super(daoAble);
+//        this.daoAble = daoAble;
     }
 
     @Override
@@ -24,23 +25,29 @@ public class RegisteredMateryal implements ReadableDb<Materyal> {
         return materyalList;
     }
 
+    @Override
+    public int size() {
+        return getList().size();
+    }
+
+
     private void getMateryalnDb() {
-//        RegisteredBook registeredBooks = new RegisteredBook(daoAble);
+//        ReadRegisteredBook registeredBooks = new ReadRegisteredBook(daoAble);
         materyalList = uniuonList(materyalList, getRegisteredBookList());
         materyalList = uniuonList(materyalList, getRegisteredMagazinList());
 
     }
 
     private List getRegisteredBookList() {
-        RegisteredBook registeredBooks = new RegisteredBook(daoAble);
+        ReadRegisteredBook registeredBooks = new ReadRegisteredBook(daoAble);
 //        return registeredBooks.getList();
-        return new RegisteredBook(daoAble).getList();
+        return new ReadRegisteredBook(daoAble).getList();
     }
 
     private List getRegisteredMagazinList() {
-//        RegisteredMagazin registeredMagazin = new RegisteredMagazin(daoAble);
+//        ReadRegisteredMagazin registeredMagazin = new ReadRegisteredMagazin(daoAble);
 //        return registeredMagazin.getList();
-        return new RegisteredMagazin(daoAble).getList();
+        return new ReadRegisteredMagazin(daoAble).getList();
     }
    /* private void detectMateryalInDb(int index) {
 

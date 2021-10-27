@@ -1,18 +1,20 @@
 package com.company.registered.subitem;
 
 import com.company.db.access.add.DAOAble;
-import com.company.db.access.read.ReadableDb;
+import com.company.db.access.read.ReadDb;
 import com.company.entity.magazin.Magazin;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RegisteredMagazin implements ReadableDb<Magazin> {
-    DAOAble daoAble;
+public class ReadRegisteredMagazin extends ReadDb<Magazin>  {
+//    DAOAble daoAble;
     List<Magazin> magazinList = new ArrayList<>();
 
-    public RegisteredMagazin(DAOAble daoAble) {
-        this.daoAble = daoAble;
+    public ReadRegisteredMagazin(DAOAble daoAble) {
+        super(daoAble);
+//        this.daoAble = daoAble;
+//        fillList();
     }
 
     @Override
@@ -21,6 +23,15 @@ public class RegisteredMagazin implements ReadableDb<Magazin> {
         detectMagazinInDb(index);
         return magazinList;
     }
+
+    @Override
+    public int size() {
+//        if(magazinList==null)
+//        return magazinList.size();
+        return getList().size();
+
+    }
+
 
     private void detectMagazinInDb(int index) {
 

@@ -1,18 +1,19 @@
 package com.company.registered.subitem;
 
 import com.company.db.access.add.DAOAble;
-import com.company.db.access.read.ReadableDb;
+import com.company.db.access.read.ReadDb;
 import com.company.entity.user.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RegisteredUsers implements ReadableDb<User> {
-    DAOAble daoAble;
+public class ReadRegisteredUsers extends ReadDb<User> {
+    //    DAOAble daoAble;
     List<User> userList = new ArrayList<>();
 
-    public RegisteredUsers(DAOAble daoAble) {
-        this.daoAble = daoAble;
+    public ReadRegisteredUsers(DAOAble daoAble) {
+        super(daoAble);
+//        this.daoAble = daoAble;
     }
 
     @Override
@@ -20,6 +21,11 @@ public class RegisteredUsers implements ReadableDb<User> {
         int index = 0;
         detectUsersInDb(index);
         return userList;
+    }
+
+    @Override
+    public int size() {
+        return getList().size();
     }
 
 

@@ -3,7 +3,7 @@ package com.company.service.registration.db;
 import com.company.PrintDbList;
 import com.company.db.access.add.DAOAble;
 import com.company.entity.magazin.Magazin;
-import com.company.registered.subitem.RegisteredMagazin;
+import com.company.registered.subitem.ReadRegisteredMagazin;
 
 import java.util.List;
 
@@ -26,7 +26,8 @@ public class MagazinRegistrationDB implements RegisterAbleToDB<Magazin> {
     }
 
     private List<Magazin> getMagazinListInDb() {
-        return new RegisteredMagazin(daoAble).getList();
+//        ReadableDb
+        return new ReadRegisteredMagazin(daoAble).getList();
 
     }
 

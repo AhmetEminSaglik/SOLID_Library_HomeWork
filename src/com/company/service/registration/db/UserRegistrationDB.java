@@ -2,10 +2,8 @@ package com.company.service.registration.db;
 
 import com.company.PrintDbList;
 import com.company.db.access.add.DAOAble;
-import com.company.entity.Entity;
 import com.company.entity.user.User;
-import com.company.registered.RegisteredItemInDb;
-import com.company.registered.subitem.RegisteredUsers;
+import com.company.registered.subitem.ReadRegisteredUsers;
 import com.company.service.registration.UserRegistrationService;
 
 import java.util.List;
@@ -28,7 +26,7 @@ public class UserRegistrationDB /*extends BaseRegistrationToDB<User> */ implemen
     }
 
     private List getUserListInDb() {
-        return new RegisteredUsers(daoAble).getList();
+        return new ReadRegisteredUsers(daoAble).getList();
 
     }
 

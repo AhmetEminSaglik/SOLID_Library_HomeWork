@@ -6,6 +6,8 @@ import com.company.exception.ExitRequestException;
 import com.company.entity.book.content.Author;
 import com.company.exception.UnAvailableBookNameInputException;
 import com.company.exception.UnAvailableBookSubjectInputException;
+import com.company.registered.subitem.ReadRegisteredBook;
+import com.company.registered.subitem.ReadRegisteredMateryal;
 import com.company.registration.CreationOfAuthor;
 import com.company.registration.Registration;
 import com.company.exception.UnAvailableBookPageNumberInputException;
@@ -47,7 +49,11 @@ public class RegistrationBook extends Registration {
 
     private int getIdOfMateryal() {
         // Db'ye erisip oradaki materyal sayisini alip +1 ekleyip dondurecem
-        return (int) Math.random() * 50;
+
+        int bookSize = new ReadRegisteredMateryal(daoAble).size();
+        bookSize++;
+
+        return bookSize;
 
     }
 

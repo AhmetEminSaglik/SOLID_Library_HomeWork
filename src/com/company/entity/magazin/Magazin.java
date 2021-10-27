@@ -15,11 +15,11 @@ public class Magazin extends Book {
     @Override
     public String toString() {
         return "Magazin{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", author=" + author +
                 ", subject='" + subject + '\'' +
                 ", pageNumber=" + pageNumber +
-                ", id=" + id +
                 ", doiNumber='" + doiNumber + '\'' +
                 '}';
     }

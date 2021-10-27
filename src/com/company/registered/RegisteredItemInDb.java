@@ -2,11 +2,11 @@ package com.company.registered;
 
 import com.company.db.access.add.DAOAble;
 import com.company.exception.ExitRequestException;
+import com.company.registered.subitem.ReadRegisteredBook;
 import com.company.secureinput.SecureInput;
-import com.company.registered.subitem.RegisteredBook;
-import com.company.registered.subitem.RegisteredMagazin;
-import com.company.registered.subitem.RegisteredMateryal;
-import com.company.registered.subitem.RegisteredUsers;
+import com.company.registered.subitem.ReadRegisteredMagazin;
+import com.company.registered.subitem.ReadRegisteredMateryal;
+import com.company.registered.subitem.ReadRegisteredUsers;
 
 import java.util.List;
 
@@ -92,22 +92,22 @@ public class RegisteredItemInDb {
 
 
     private List getUserListInDb() {
-        return new RegisteredUsers(daoAble).getList();
+        return new ReadRegisteredUsers(daoAble).getList();
 
     }
 
     private List getMateryalListInDb() {
-        return new RegisteredMateryal(daoAble).getList();
+        return new ReadRegisteredMateryal(daoAble).getList();
 
     }
 
     private List getBookListInDb() {
-        return new RegisteredBook(daoAble).getList();
+        return new ReadRegisteredBook(daoAble).getList();
 
     }
 
     private List getMagazinListInDb() {
-        return new RegisteredMagazin(daoAble).getList();
+        return new ReadRegisteredMagazin(daoAble).getList();
 
     }
 

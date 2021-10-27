@@ -3,7 +3,7 @@ package com.company.service.registration.db;
 import com.company.PrintDbList;
 import com.company.db.access.add.DAOAble;
 import com.company.entity.book.Book;
-import com.company.registered.subitem.RegisteredBook;
+import com.company.registered.subitem.ReadRegisteredBook;
 import com.company.service.registration.BookRegistrationService;
 
 import java.util.List;
@@ -28,7 +28,7 @@ public class BookRegistrationDB /*extends BaseRegistrationToDB<Book> */ implemen
     }
 
     private List getBookListInDb() {
-        return new RegisteredBook(daoAble).getList();
+        return new ReadRegisteredBook(daoAble).getList();
 
     }
 

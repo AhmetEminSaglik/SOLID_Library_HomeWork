@@ -4,7 +4,7 @@ import com.company.db.access.add.DAOAble;
 import com.company.entity.user.User;
 import com.company.entity.user.content.Password;
 import com.company.entity.user.content.Username;
-import com.company.registered.subitem.RegisteredUsers;
+import com.company.registered.subitem.ReadRegisteredUsers;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class ValidationLoginService {
 
     public boolean validateLogin(User user) {
 
-        RegisteredUsers registeredUsers = new RegisteredUsers(daoAble);
+        ReadRegisteredUsers registeredUsers = new ReadRegisteredUsers(daoAble);
 
         List<User> list = registeredUsers.getList();
         for (User tmp : list) {
@@ -32,7 +32,7 @@ public class ValidationLoginService {
 
         return false;
 
-       /* ReadableDb<User> readableDb = new ReadingDb(daoAble);
+       /* ReadableDb<User> readableDb = new ReadDb(daoAble);
         List<User> userList = (List<User>) readableDb.getAll();
 
         for (User tmp : userList) {
