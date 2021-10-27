@@ -1,9 +1,14 @@
 package com.company.service.registration.db;
 
+import com.company.PrintDbList;
 import com.company.db.access.add.DAOAble;
 import com.company.entity.Entity;
 import com.company.entity.user.User;
+import com.company.registered.RegisteredItemInDb;
+import com.company.registered.subitem.RegisteredUsers;
 import com.company.service.registration.UserRegistrationService;
+
+import java.util.List;
 
 public class UserRegistrationDB /*extends BaseRegistrationToDB<User> */ implements RegisterAbleToDB<User> {
     DAOAble<User> daoAble;
@@ -18,12 +23,17 @@ public class UserRegistrationDB /*extends BaseRegistrationToDB<User> */ implemen
 
     @Override
     public void register(User user) {
-//        userRegistarationService.registerUser(user);
-
         daoAble.add(user);
-        for (Entity tmp : daoAble.getAll()) {
-            System.out.println("                                         "+tmp);
-        }
+        printList(getUserListInDb());
+    }
+
+    private List getUserListInDb() {
+        return new RegisteredUsers(daoAble).getList();
+
+    }
+
+    private void printList(List list) {
+        PrintDbList.printList(list);
     }
 
 

@@ -1,9 +1,12 @@
 package com.company.service.registration.db;
 
+import com.company.PrintDbList;
 import com.company.db.access.add.DAOAble;
-import com.company.entity.Entity;
 import com.company.entity.book.Book;
+import com.company.registered.subitem.RegisteredBook;
 import com.company.service.registration.BookRegistrationService;
+
+import java.util.List;
 
 
 public class BookRegistrationDB /*extends BaseRegistrationToDB<Book> */ implements RegisterAbleToDB<Book> {
@@ -20,9 +23,16 @@ public class BookRegistrationDB /*extends BaseRegistrationToDB<Book> */ implemen
     public void register(Book book) {
 //        bookRegistrationService.registerBook(book);
         daoAble.add(book);
-        for (Entity tmp : daoAble.getAll()) {
-            System.out.println("                                         " + tmp);
-        }
+        printList(getBookListInDb());
 
+    }
+
+    private List getBookListInDb() {
+        return new RegisteredBook(daoAble).getList();
+
+    }
+
+    private void printList(List list) {
+        PrintDbList.printList(list);
     }
 }
