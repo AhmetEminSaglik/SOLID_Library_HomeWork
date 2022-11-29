@@ -1,0 +1,31 @@
+
+    /*
+     * Kullanici adi sifre alinarak oturum acilacak (oturum ac)
+     * Veritabaninda var olan kitap bilgileri cekilip gosterilecek. (BilgileriGetir(String))
+     * Yeni kitap bilgisi olusturulacak( KitapOlustur(string))
+     * Yeni dergi bilgisi olusturulacak (Dergi olustur(String))
+     * Olusturulan bilgiler veritabanina kaydedilecek( Kaydet(String))
+     *
+     * OOp ve Single Res. Prensibleirne uygun tasatlariniz
+     * Gerektiginde veritabani eklenebilmeli
+     * Kitap bilgileri :id sayfasayisi kitap adi yazari konusu
+     * Dergi bilgileri :id sayfasayisi kitap adi yazari konusu  doi numarasi 
+
+     */
+
+     SORULAR :
+
+    --> BookService / isBookNameAvailableToRegister  / exception messageini :   Book  mu olmali Materyal mi olmali?
+    --> Dergide bir  Kitap oldugu icin Kitap alma islemleri yapip Dergiye aktardim ama hata olursa dergi adi gecersiz yerine kitap adi gecersiz diyor
+        Kod tekrarina dusmeden bu hatayi nasil onleyebilirim?
+
+    --> RegistrationOf
+                    /User
+                    /Book
+                    /Magazin
+                                Bu 3 unde de while dongusunun mantigi ve kullanimi tamamen ayni ama while 3 kere yazdim
+                                ve muhtemelen eklenen her yeni Entity (Yada ne denir bilmiyorum) icin bastan yazmam gerekiyor
+
+
+    --> DaoAble bu kadar cok  gondermis olmam sorun  olusturur mu?
+                            // Bir kerede  olusturulan veri tabanini her yerde kullanabilmek icin boyle bir yonteme basvurdum
